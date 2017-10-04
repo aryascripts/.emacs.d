@@ -5,3 +5,4 @@
 (winner-mode t)
 (windmove-default-keybindings)
 (setq ring-bell-function 'ignore)
+(global-linum-mode t)
