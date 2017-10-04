@@ -1,24 +1,5 @@
-
-Boilerplate for a ~/.emacs.d/config.org emacs configuration using
-"Sane Defaults".
-
-Steps to making this file yours:
-
-1) Change all instances of "Your Name Here" to your name.
-2) Change all instances of "your@email.here" to your email address.
-3) Create ~/.emacs.d/custom.el even if it's empty.
-   Emacs will now write your (interactive) customizations to that
-   file. 
-4) Change the Sane Defaults if you need to. 
-   For example if you read and write Chinese and so prefer to default
-   to utf-16.
-5) Teach yourself what goes into your backup directories
-   ~/.emacs.d/backups
-   ~/.emacs.d/auto-save-list
-   So you'll know where to look for older versions of files that
-   you've edited. 
-6) Delete these instructions and replace them with a personalized
-   introduction. 
+#+TITLE: Emacs Configuration
+#+AUTHOR: Aman Bhimani
 
 * Personal Information
 
@@ -38,10 +19,6 @@ customize settings in [[file:init.el][init.el]].
 #+end_src
 
 * Sane defaults
-
-Let's start with some sane defaults, shall we?
-
-Sources for this section include [[https://github.com/magnars/.emacs.d/blob/master/settings/sane-defaults.el][Magnars Sveen]] and [[http://pages.sachachua.com/.emacs.d/Sacha.html][Sacha Chua]].
 
 #+begin_src emacs-lisp
 ;; These functions are useful. Activate them.
@@ -83,7 +60,6 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 (column-number-mode t)
 
 (global-visual-line-mode)
-(diminish 'visual-line-mode)
 
 (setq uniquify-buffer-name-style 'forward)
 
@@ -110,5 +86,4 @@ at point as the default value for occur.
         regexp-history)
   (call-interactively 'occur))
 
-(bind-key "M-s o" 'occur-dwim)
 #+end_src

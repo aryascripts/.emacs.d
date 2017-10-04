@@ -1,0 +1,32 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/amanbhimani/Programming/3ds/" . "clock/")
+ ("/Users/amanbhimani/Programming/" . "3ds/")
+ ("/Users/amanbhimani/" . "Programming/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ 
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/amanbhimani/Programming/3ds/clock/" (22791 27981 0 0) "source/" "Makefile" "clock.smdh" "clock.elf" "clock.3dsx" "build/" ".DS_Store" "../" "./")
+
+ ("/Users/amanbhimani/Programming/3ds/" (22785 6820 0 0) "trying/" "main.c" "helloworld/" "examples/" "clock/" ".DS_Store" "../" "./")
+
+ ("/Users/amanbhimani/Programming/" (22993 509 0 0) "Unity/" "test/" "TargetIT Database Website.rar" "School/" "Rust/" "Repositories/" "Python/" "Node/" "js/" "examples/" "cpp/" "Arduino/" "apocalyptic.png" "angular/" "3ds/" ".DS_Store" "../" "./")
+
+ ("/Users/amanbhimani/" (22996 6214 0 0) "YNAB-darwin-x64/" "t_downloads/" "public_apps/" "Public/" "Programming/" "Pictures/" "P1D1_Bhimani.png" "ooad_group_project/" "node/" "Music/" "Movies/" "Mar 22 5.31PM_page001.svg" "Mar 22 5.31PM.html" "mamp_www/" "Library/" "iTunes/" "IdeaProjects/" "Graphic Design/" "Google Drive/" "firm/" "Encrypted/" "electron-apps/" "Downloads/" "dotfiles/" "Documents/" "devkitPro/" "Desktop/" "Calibre Library/" "Backup/" "Applications/" ".zshrc-backup" ".zshrc" ".zsh_history" ".zsh-update" ".zcompdump-Aman’s MacBook Pro-5.2" ".yjp/" ".Xauthority" ".wapi/" ".vscode/" ".viminfo" ".Trash/" ".swipl-dir-history/" ".subversion/" ".streamlinkrc" ".ssh/" ".spacemacs" ".rnd" ".reincubate/" ".oracle_jre_usage/" ".openshift/" ".oh-my-zsh/" ".npm/" ".node_repl_history" ".mono/" ".m2/" ".local/" ".kodi/" ".jssc/" ".idlerc/" ".hyperterm_plugins/" ".hyper_plugins/" ".hyper.js.save" ".hyper.js" ".hgignore_global" ".gitignore_global" ".gitconfig" ".fs_usage.swp" ".emacs.d.spacemacs.bkup/" ".emacs.d/" ".electron/" ".DS_Store" ".dropbox/" ".cups/" ".config/" ".chatty/" ".CFUserTextEncoding" ".cache/" ".bashrc" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" ".android/" ".aliases" ".adobe/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

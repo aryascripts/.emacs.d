@@ -1,0 +1,7 @@
+(setq frame-title-format "emacs")
+(set-default 'cursor-type 'bar)
+(ido-mode)
+(global-hl-line-mode)
+(winner-mode t)
+(windmove-default-keybindings)
+(setq ring-bell-function 'ignore)
