@@ -21,3 +21,5 @@ re-downloaded in order to locate PACKAGE."
 
 (require 'evil)
 (evil-mode t)
+
+(provide 'evil_mode)

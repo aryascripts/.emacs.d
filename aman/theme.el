@@ -25,3 +25,5 @@
 
   ;; load theme
   (load-theme 'aman-orange t)
+
+(provide 'theme)

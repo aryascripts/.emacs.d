@@ -42,6 +42,11 @@
 ;                 INSTALL PACKAGES                  ;
 ;___________________________________________________;
 
+(use-package evil
+  :ensure t
+  :init (evil-mode 1)
+  :config (define-key evil-normal-state-map "," nil))
+
 (use-package powerline
   :ensure t
   :init (progn
@@ -97,17 +102,6 @@
             "hdk" 'describe-key
             )))
 
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook)
-  :init
-  (setq dashboard-banner-logo-title "Welcome to Emacs! The OS that lacks an editor.")
-  (setq dashboard-items '((recents  . 5)
-                        (bookmarks . 5)
-                        (projects . 5)
-                        (agenda . 5)
-                        (registers . 5))))
 (use-package ivy
   :ensure t
   :defer t
@@ -135,6 +129,6 @@
           (which-key-add-key-based-replacements ",wh" "window-horizontal")))
 
 (use-package linum-relative
-  :ensure t
-  :init (progn
-          (linum-relative-on)))
+  :ensure t)
+
+(provide 'packages)

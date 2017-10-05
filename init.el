@@ -6,26 +6,58 @@
   (scroll-bar-mode -1)
   (tooltip-mode -1))
 
+;; debug on error
+(set 'debug-on-error t)
+
+;; initial messages clearing
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
-;;; Load the config
-(org-babel-load-file (concat user-emacs-directory "config.org"))
+;; dont prefer outdated byte code
+(setq load-prefer-newer t)
 
-;; Courtesy of https://www.emacswiki.org/emacs/DotEmacsModular
-;; Loads all the .el files inside the directory provided
-(defun load-directory (directory)
-  "Load recursively all `.el' files in DIRECTORY."
-  (dolist (element (directory-files-and-attributes directory nil nil nil))
-    (let* ((path (car element))
-           (fullpath (concat directory "/" path))
-           (isdir (car (cdr element)))
-           (ignore-dir (or (string= path "themes") (string= path ".") (string= path ".."))))
-      (cond
-       ((and (eq isdir t) (not ignore-dir))
-        (load-directory fullpath))
-       ((and (eq isdir nil) (string= (substring path -3) ".el"))
-        (load (file-name-sans-extension fullpath)))))))
+;; this line must exist; do not remove
+(package-initialize)
+;; configure auto file backups
+;; set a variable for convenience
+(defvar dir-file-backups (concat user-emacs-directory "file_backups"))
 
-;; Load the "aman" directory
-(load-directory (concat user-emacs-directory "aman"))
+;; create directory if it doesnt exist
+(unless (file-exists-p dir-file-backups) (make-directory dir-file-backups))
+;; set configuration
+(setq auto-save-list-file-name (concat dir-file-backups "/auto-save-list"))
+(setq
+ backup-directory-alist `(("." . ,dir-file-backups))
+ backup-by-copying t
+ delete-old-versions t
+ kept-new-versions 3
+ kept-old-versions 1
+ version-control nil)
+
+;; configure custom file
+;; this is where emacs will place all of its auto-saved config
+;; create file if it doesnt exist
+(defvar custom-file-path (concat user-emacs-directory "custom.el"))
+(unless (file-exists-p custom-file-path) (write-region "" nil custom-file-path))
+
+;; use own custom file path
+(setq custom-file custom-file-path)
+(load custom-file)
+
+;; stop dired creating new buffers when entering directories
+(require 'dired)
+(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+(define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; add custom directory to load path
+(add-to-list 'load-path (concat user-emacs-directory "aman"))
+
+;; custom emacs settings called in this file
+(require 'settings)
+
+;; loading packages for init and setting configs
+(require 'packages)
+
+;; load the theme package and start the theme
+(require 'theme)
