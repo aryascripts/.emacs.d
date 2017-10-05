@@ -6,3 +6,4 @@
 (windmove-default-keybindings)
 (setq ring-bell-function 'ignore)
 (global-linum-mode t)
+(electric-pair-mode)

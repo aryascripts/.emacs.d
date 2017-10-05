@@ -69,9 +69,17 @@
             :prefix ","
             ;; first-hand shortcuts
             "c" 'kill-this-buffer
+            "l" 'linum-relative-toggle
+            ;; DIRECTORIES!
+            "dd" '(lambda () (interactive) (dired "~/"))
+            "de" '(lambda () (interactive) (dired "~/Programming/electron"))
+            "dp" '(lambda () (interactive) (dired "~/Programming/python"))
+            "ds" '(lambda () (interactive) (dired "~/Programming/school"))
+            "dw" '(lambda () (interactive) (dired "~/Programming/web"))
+            "d." '(lambda () (interactive) (dired "~/.emacs.d/"))
             ;; MENUS - <leader><menu key> enters a "menu"
             ;; b - BUFFERS
-            "bd" 'kill-buffer
+            "bc" 'kill-buffer
             "bb" 'switch-to-buffer
             "bn" 'next-buffer
             "bp" 'previous-buffer
@@ -79,13 +87,54 @@
             "ff" 'counsel-find-file
             "fc" '(lambda () (interactive) (load-directory "~/.emacs.d"))
             ;; w - WINDOW
-            "wd" 'evil-window-delete
-            "wc" 'evil-window-delete
+            "wc" 'evil-window-delete  ; window close
             "wv" 'evil-window-vnew
-            "wh" 'evil-window-new
+            "wh" 'evil-window-new     ; horizontal
             ;; h - HELP
             ;; h d - HELP > DESCRIBE
             "hdv" 'counsel-describe-variable
             "hdf" 'counsel-describe-function
             "hdk" 'describe-key
             )))
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  :init
+  (setq dashboard-banner-logo-title "Welcome to Emacs! The OS that lacks an editor.")
+  (setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5))))
+(use-package ivy
+  :ensure t
+  :defer t
+  :init (progn
+          (ivy-mode 1)
+          (setq ivy-use-virtual-buffers t)
+          (setq enable-recursive-minibuffers t)))
+
+(use-package counsel
+  :ensure t
+  :defer t)
+
+(use-package which-key
+  :ensure t
+  :init (progn
+          (which-key-mode 1)
+          (which-key-setup-side-window-right)
+          (which-key-add-key-based-replacements ",w" "Window..")
+          (which-key-add-key-based-replacements ",f" "Files..")
+          (which-key-add-key-based-replacements ",b" "Buffers..")
+          ;; HELP COMMANDS
+          (which-key-add-key-based-replacements ",h" "Help..")
+          (which-key-add-key-based-replacements ",hd" "Describe..")
+          ;; BUFFERS
+          (which-key-add-key-based-replacements ",wh" "window-horizontal")))
+
+(use-package linum-relative
+  :ensure t
+  :init (progn
+          (linum-relative-on)))
