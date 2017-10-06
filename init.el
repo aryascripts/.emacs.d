@@ -1,10 +1,11 @@
-; ;;; Begin initialization
-; ;; Turn off mouse interface early in startup to avoid momentary display
+;; Begin initialization
+;;; Turn off mouse interface early in startup to avoid momentary display
 (when window-system
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
-  (tooltip-mode -1))
+  (tooltip-mode -1)
+  (set-frame-size (selected-frame) 147 47))
 
 ;; debug on error
 (set 'debug-on-error t)
@@ -61,3 +62,6 @@
 
 ;; load the theme package and start the theme
 (require 'theme)
+
+;; general and which-key commands
+(require 'key_bindings)
