@@ -78,11 +78,14 @@
   :init (progn
           (counsel-projectile-on)))
 
+;; commentart with gcc for evil (vim)
 (use-package evil-commentary
   :ensure t
   :init (progn
           (evil-commentary-mode)))
 
+;; Tabs for open buffers. Works with projectile
+;; Function for switching tabs with C-Tab and C-S-Tab
 (use-package tabbar
   :ensure t
   :init (progn
