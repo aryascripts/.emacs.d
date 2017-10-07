@@ -91,6 +91,7 @@
   :init (progn
           (tabbar-mode t)
           (setq tabbar-use-images nil)
+          ;; C-Tab and C-S-Tab for switching between buffers
           (dolist (func '(tabbar-mode tabbar-forward-tab tabbar-forward-group tabbar-backward-tab tabbar-backward-group))
           (autoload func "tabbar" "Tabs at the top of buffers and easy control-tab navigation"))
 
@@ -106,7 +107,10 @@
             (defun-prefix-alt shk-tabbar-prev (tabbar-backward-tab) (tabbar-backward-group) (tabbar-mode 1))
 
             (global-set-key [(control tab)] 'shk-tabbar-next)
-            (global-set-key [(control shift tab)] 'shk-tabbar-prev)))
-          
+            (global-set-key [(control shift tab)] 'shk-tabbar-prev)
+            ;; This is for lising all buffers in a single tab - no groups
+            (setq tabbar-buffer-groups-function
+                     (lambda ()
+                       (list "All")))))
 
 (provide 'packages)
